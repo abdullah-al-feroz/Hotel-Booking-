@@ -16,9 +16,9 @@ namespace HotelBooking.GenericRepo
             _context = context;
             entities = _context.Set<T>();
         }
-        public IEnumerable<T> GetAll()
+        public async Task<IEnumerable<T>> GetAll()
         {
-            return entities.AsEnumerable();
+            return await entities.ToListAsync();
         }
 
         public T GetbyId(int Id)

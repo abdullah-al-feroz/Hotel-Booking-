@@ -2,6 +2,7 @@
 using HotelBooking.Model;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HotelBooking.Controllers
 {
@@ -21,19 +22,19 @@ namespace HotelBooking.Controllers
         }
 
         [HttpGet("Room")]
-        public IEnumerable<Room> GetRoom()
+        public async Task <IEnumerable<Room>> GetRoom()
         {
-            return _roomRepo.GetAll();
+            return await _roomRepo.GetAll();
         }
         [HttpGet("RoomTypes")]
-        public IEnumerable<RoomType> GetRoomType()
+        public async Task <IEnumerable<RoomType>> GetRoomType()
         {
-            return _roomTypeRepo.GetAll();
+            return await _roomTypeRepo.GetAll();
         }
         [HttpGet("RoomFacily")]
-        public IEnumerable<RoomFacility>GetRoomFacilities()
+        public async Task<IEnumerable<RoomFacility>>GetRoomFacilities()
         {
-            return _roomFacility.GetAll();
+            return await _roomFacility.GetAll();
         }
     }
 }
